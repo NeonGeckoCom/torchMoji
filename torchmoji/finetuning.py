@@ -521,7 +521,8 @@ def fit_model(model, loss_op, optim_op, train_gen, val_gen, epochs,
     torch.save(model.state_dict(), checkpoint_path)
 
     model.eval()
-    best_loss = np.mean([calc_loss(loss_op, model(Variable(xv)), Variable(yv)).data.cpu().numpy()[0] for xv, yv in val_gen])
+    best_loss = np.mean([calc_loss(loss_op, model(Variable(xv)), Variable(yv)).data.cpu().numpy()
+                         for xv, yv in val_gen])
     print("original val loss", best_loss)
 
     epoch_without_impr = 0
