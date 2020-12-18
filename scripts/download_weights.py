@@ -15,25 +15,25 @@ weights_download_link = 'https://www.dropbox.com/s/q8lax9ary32c7t9/pytorch_model
 
 MB_FACTOR = float(1<<20)
 
-def prompt():
-    while True:
-        valid = {
-            'y': True,
-            'ye': True,
-            'yes': True,
-            'n': False,
-            'no': False,
-        }
-        choice = input().lower()
-        if choice in valid:
-            return valid[choice]
-        else:
-            print('Please respond with \'y\' or \'n\' (or \'yes\' or \'no\')')
+# def prompt():
+#     while True:
+#         valid = {
+#             'y': True,
+#             'ye': True,
+#             'yes': True,
+#             'n': False,
+#             'no': False,
+#         }
+#         choice = input().lower()
+#         if choice in valid:
+#             return valid[choice]
+#         else:
+#             print('Please respond with \'y\' or \'n\' (or \'yes\' or \'no\')')
 
 download = True
 if os.path.exists(weights_path):
-    print('Weight file already exists at {}. Would you like to redownload it anyway? [y/n]'.format(weights_path))
-    download = prompt()
+#     print('Weight file already exists at {}. Would you like to redownload it anyway? [y/n]'.format(weights_path))
+#     download = prompt()
     already_exists = True
 else:
     already_exists = False
@@ -41,11 +41,11 @@ else:
 if download:
     print('About to download the pretrained weights file from {}'.format(weights_download_link))
     if already_exists == False:
-        print('The size of the file is roughly 85MB. Continue? [y/n]')
+        print('The size of the file is roughly 85MB.')
     else:
         os.unlink(weights_path)
 
-    if already_exists or prompt():
+    if already_exists: #or prompt():
         print('Downloading...')
 
         #urllib.urlretrieve(weights_download_link, weights_path)
