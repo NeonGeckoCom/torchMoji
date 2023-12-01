@@ -8,8 +8,8 @@ setup(
     include_package_data=True,
     install_requires=[
         'emoji~=0.4',
-        'numpy~=1.18.5',
-        'scipy~=1.5.4',
+        'numpy~=1.18',
+        'scipy~=1.5',
         'scikit-learn==0.19.0',
         'text-unidecode==1.0',
         'nose~=1.3.7',
